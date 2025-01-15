@@ -58,9 +58,26 @@ defmodule MyMoneyWeb do
     end
   end
 
+  def live_view_dashboard do
+    quote do
+      use Phoenix.LiveView,
+        layout: {MyMoneyWeb.Dashboard, :dashboard}
+
+      unquote(html_helpers())
+    end
+  end
+
   def live_component do
     quote do
       use Phoenix.LiveComponent
+
+      unquote(html_helpers())
+    end
+  end
+
+  def component do
+    quote do
+      use Phoenix.Component
 
       unquote(html_helpers())
     end
@@ -86,7 +103,45 @@ defmodule MyMoneyWeb do
       # Core UI components and translation
       import MyMoneyWeb.CoreComponents
       import MyMoneyWeb.Gettext
-
+      import MyMoneyWeb.Component
+      import MyMoneyWeb.Component.Helpers
+      alias MyMoneyWeb.Component.Accordion
+      alias MyMoneyWeb.Component.Alert
+      alias MyMoneyWeb.Component.AlertDialog
+      alias MyMoneyWeb.Component.Avatar
+      alias MyMoneyWeb.Component.Badge
+      alias MyMoneyWeb.Component.Breadcrumb
+      alias MyMoneyWeb.Component.Button
+      alias MyMoneyWeb.Component.Card
+      alias MyMoneyWeb.Component.Checkbox
+      alias MyMoneyWeb.Component.Collapsible
+      alias MyMoneyWeb.Component.Dialog
+      alias MyMoneyWeb.Component.DropdownMenu
+      alias MyMoneyWeb.Component.Form
+      alias MyMoneyWeb.Component.HoverCard
+      alias MyMoneyWeb.Component.Icon
+      alias MyMoneyWeb.Component.Input
+      alias MyMoneyWeb.Component.Label
+      alias MyMoneyWeb.Component.LiveChart
+      alias MyMoneyWeb.Component.Menu
+      alias MyMoneyWeb.Component.Pagination
+      alias MyMoneyWeb.Component.Popover
+      alias MyMoneyWeb.Component.Progress
+      alias MyMoneyWeb.Component.RadioGroup
+      alias MyMoneyWeb.Component.ScrollArea
+      alias MyMoneyWeb.Component.Select
+      alias MyMoneyWeb.Component.Separator
+      alias MyMoneyWeb.Component.Sheet
+      alias MyMoneyWeb.Component.Sidebar
+      alias MyMoneyWeb.Component.Skeleton
+      alias MyMoneyWeb.Component.Slider
+      alias MyMoneyWeb.Component.Switch
+      alias MyMoneyWeb.Component.Table
+      alias MyMoneyWeb.Component.Tabs
+      alias MyMoneyWeb.Component.Textarea
+      alias MyMoneyWeb.Component.Toggle
+      alias MyMoneyWeb.Component.ToggleGroup
+      alias MyMoneyWeb.Component.Tooltip
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 

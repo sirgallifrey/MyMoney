@@ -9,6 +9,7 @@ defmodule MyMoneyWeb.Layouts do
   `use MyMoneyWeb, :live_view`.
   """
   use MyMoneyWeb, :html
+  import MyMoneyWeb.Dashboard
 
   embed_templates "layouts/*"
 end

@@ -9,9 +9,7 @@ defmodule MyMoneyWeb.TransactionLive.Index do
     user_id = socket.assigns.current_user.id
     {:ok, socket
       |> stream(:transactions, Finance.list_transactions())
-      # |> assign(:accounts, )
       |> assign_async(:accounts_async, fn -> {:ok, %{accounts_async: Finance.list_accounts_options(user_id)}} end)
-      |>IO.inspect()
     }
   end
 

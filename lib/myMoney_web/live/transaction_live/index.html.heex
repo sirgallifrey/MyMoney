@@ -3,13 +3,13 @@
 </.header>
 
 <.live_component
-    module={MyMoneyWeb.TransactionLive.FormComponent}
-    id={:newInline}
-    action={@live_action}
-    transaction={@transaction}
-    accounts_async={@accounts_async}
-    patch={~p"/transactions"}
-  />
+  module={MyMoneyWeb.TransactionLive.FormComponent}
+  id={:newInline}
+  action={@live_action}
+  transaction={@transaction}
+  accounts_async={@accounts_async}
+  patch={~p"/transactions"}
+/>
 
 <.table
   id="transactions"
@@ -35,7 +35,12 @@
   </:action>
 </.table>
 
-<.modal :if={@live_action in [:new, :edit]} id="transaction-modal" show on_cancel={JS.patch(~p"/transactions")}>
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="transaction-modal"
+  show
+  on_cancel={JS.patch(~p"/transactions")}
+>
   <.live_component
     module={MyMoneyWeb.TransactionLive.FormComponent}
     id={@transaction.id || :new}

@@ -1,3 +1,8 @@
+<%= if assigns[:current_user] do %>
+<.dashboard {assigns} >
+<%= @inner_content %>
+</.dashboard>
+<% else %>
 <header class="px-4 sm:px-6 lg:px-8">
 </header>
 <main class="px-4 py-20 sm:px-6 lg:px-8">
@@ -6,3 +11,5 @@
     <%= @inner_content %>
   </div>
 </main>
+<% end %>
+
